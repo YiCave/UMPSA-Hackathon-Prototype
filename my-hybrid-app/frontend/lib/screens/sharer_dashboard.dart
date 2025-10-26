@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import '../utils/app_theme.dart';
 import '../widgets/bottom_navigation.dart';
+import '../widgets/app_drawer.dart';
 import 'food_upload_screen.dart';
+import 'recipes_screen.dart';
+import 'about_us_screen.dart';
 
 class SharerDashboard extends StatefulWidget {
   const SharerDashboard({super.key});
@@ -18,7 +21,6 @@ class _SharerDashboardState extends State<SharerDashboard> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('SmartBite'),
-        automaticallyImplyLeading: false,
         actions: [
           IconButton(
             icon: const Icon(Icons.person_outline),
@@ -26,6 +28,7 @@ class _SharerDashboardState extends State<SharerDashboard> {
           ),
         ],
       ),
+      drawer: const AppDrawer(),
       body: _buildCurrentScreen(),
       bottomNavigationBar: CustomBottomNavigation(
         currentIndex: _currentIndex,
@@ -48,8 +51,6 @@ class _SharerDashboardState extends State<SharerDashboard> {
       case 2:
         return _buildRecipesScreen();
       case 3:
-        return _buildMapScreen();
-      case 4:
         return _buildAboutScreen();
       default:
         return _buildHomeScreen();
@@ -100,10 +101,122 @@ class _SharerDashboardState extends State<SharerDashboard> {
 
           const SizedBox(height: 24),
 
+          // Impact Stats (Moved to top and enhanced)
+          Text(
+            'Your Impact This Month',
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 16),
+
+          Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  AppTheme.successGreen.withValues(alpha: 0.1),
+                  AppTheme.primaryGreen.withValues(alpha: 0.05),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Column(
+              children: [
+                // Top row stats
+                Row(
+                  children: [
+                    Expanded(
+                      child: _buildEnhancedStatCard(
+                        '23',
+                        'Items Shared',
+                        Icons.restaurant,
+                        AppTheme.primaryGreen,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: _buildEnhancedStatCard(
+                        '47',
+                        'People Helped',
+                        Icons.people,
+                        AppTheme.accentOrange,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 12),
+                // Bottom row stats
+                Row(
+                  children: [
+                    Expanded(
+                      child: _buildEnhancedStatCard(
+                        'RM 340',
+                        'Food Value',
+                        Icons.monetization_on,
+                        AppTheme.successGreen,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: _buildEnhancedStatCard(
+                        '8.2 kg',
+                        'Waste Saved',
+                        Icons.eco,
+                        AppTheme.primaryGreen,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                // Impact visualization
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Weekly Impact Trend',
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      // Fake chart representation
+                      SizedBox(
+                        height: 80,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            _buildChartBar('Mon', 0.3, AppTheme.primaryGreen),
+                            _buildChartBar('Tue', 0.7, AppTheme.primaryGreen),
+                            _buildChartBar('Wed', 0.5, AppTheme.primaryGreen),
+                            _buildChartBar('Thu', 0.9, AppTheme.accentOrange),
+                            _buildChartBar('Fri', 0.6, AppTheme.primaryGreen),
+                            _buildChartBar('Sat', 0.4, AppTheme.primaryGreen),
+                            _buildChartBar('Sun', 0.8, AppTheme.successGreen),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 24),
+
           // Quick Actions
           Text(
             'Quick Actions',
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: 16),
 
@@ -161,30 +274,48 @@ class _SharerDashboardState extends State<SharerDashboard> {
             '1 day ago',
             AppTheme.accentOrange,
           ),
+          const SizedBox(height: 12),
+          _buildActivityCard(
+            'Bread Loaves (3x)',
+            'Claimed by recipients',
+            '2 days ago',
+            AppTheme.successGreen,
+          ),
 
           const SizedBox(height: 24),
 
-          // Impact Stats
+          // Achievement Badge
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: AppTheme.cardBackground,
+              gradient: LinearGradient(
+                colors: [
+                  AppTheme.accentOrange.withValues(alpha: 0.1),
+                  AppTheme.primaryGreen.withValues(alpha: 0.1),
+                ],
+              ),
               borderRadius: BorderRadius.circular(16),
             ),
             child: Column(
               children: [
-                Text(
-                  'Your Impact This Month',
-                  style: Theme.of(context).textTheme.titleLarge,
+                const Icon(
+                  Icons.emoji_events,
+                  color: AppTheme.accentOrange,
+                  size: 48,
                 ),
-                const SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    _buildStatItem('15', 'Items Shared'),
-                    _buildStatItem('RM 180', 'Value Donated'),
-                    _buildStatItem('8', 'Families Helped'),
-                  ],
+                const SizedBox(height: 12),
+                Text(
+                  'Community Hero!',
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: AppTheme.accentOrange,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'You\'ve shared over 20 items this month. Thank you for making a difference!',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),
@@ -263,40 +394,72 @@ class _SharerDashboardState extends State<SharerDashboard> {
     );
   }
 
-  Widget _buildStatItem(String value, String label) {
+  Widget _buildEnhancedStatCard(String value, String label, IconData icon, Color color) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          Icon(icon, color: color, size: 32),
+          const SizedBox(height: 8),
+          Text(
+            value,
+            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+              color: color,
+              fontWeight: FontWeight.bold,
+              fontSize: 24,
+            ),
+          ),
+          Text(
+            label,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              color: AppTheme.textSecondary,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildChartBar(String day, double height, Color color) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Text(
-          value,
-          style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-            color: AppTheme.primaryGreen,
-            fontWeight: FontWeight.w700,
+        Container(
+          width: 20,
+          height: height * 60, // Max height 60
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(4),
           ),
         ),
+        const SizedBox(height: 4),
         Text(
-          label,
-          style: Theme.of(context).textTheme.bodyMedium,
-          textAlign: TextAlign.center,
+          day,
+          style: Theme.of(context).textTheme.bodySmall?.copyWith(
+            fontSize: 10,
+          ),
         ),
       ],
     );
   }
 
   Widget _buildRecipesScreen() {
-    return const Center(
-      child: Text('Recipes Screen - Coming Soon'),
-    );
-  }
-
-  Widget _buildMapScreen() {
-    return const Center(
-      child: Text('Donation Map - Coming Soon'),
-    );
+    return const RecipesScreen();
   }
 
   Widget _buildAboutScreen() {
-    return const Center(
-      child: Text('About Us - Coming Soon'),
-    );
+    return const AboutUsScreen();
   }
 }

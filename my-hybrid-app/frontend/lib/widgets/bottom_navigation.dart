@@ -39,15 +39,11 @@ class CustomBottomNavigation extends StatelessWidget {
       ),
       BottomNavigationBarItem(
         icon: Icon(Icons.camera_alt),
-        label: 'Scan',
+        label: 'Upload',
       ),
       BottomNavigationBarItem(
         icon: Icon(Icons.menu_book),
         label: 'Recipes',
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.map),
-        label: 'Map',
       ),
       BottomNavigationBarItem(
         icon: Icon(Icons.info_outline),
@@ -67,8 +63,8 @@ class CustomBottomNavigation extends StatelessWidget {
         label: 'Scan QR',
       ),
       BottomNavigationBarItem(
-        icon: Icon(Icons.list),
-        label: 'My Items',
+        icon: Icon(Icons.map),
+        label: 'Map',
       ),
       BottomNavigationBarItem(
         icon: Icon(Icons.info_outline),

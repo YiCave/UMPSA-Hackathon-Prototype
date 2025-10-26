@@ -222,7 +222,7 @@ class WelcomeScreen extends StatelessWidget {
       destination = const RecipientDashboard();
     }
     
-    Navigator.pushReplacement(
+    Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => destination),
     );
