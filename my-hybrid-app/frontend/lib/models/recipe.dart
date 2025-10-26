@@ -65,7 +65,7 @@ class RecipeDatabase {
         ],
         cookTimeMinutes: 15,
         difficulty: 'Easy',
-        imageUrl: 'https://via.placeholder.com/300x200?text=Rice+Bowl',
+        imageUrl: 'assets/images/BreakfastBowls.jpg',
         tags: ['rice', 'eggs', 'quick', 'leftover'],
       ),
       Recipe(
@@ -90,7 +90,7 @@ class RecipeDatabase {
         ],
         cookTimeMinutes: 20,
         difficulty: 'Easy',
-        imageUrl: 'https://via.placeholder.com/300x200?text=Banana+Pancakes',
+        imageUrl: 'assets/images/Banana-Pancakes-13.jpg',
         tags: ['banana', 'eggs', 'flour', 'sweet'],
       ),
       Recipe(
@@ -115,7 +115,7 @@ class RecipeDatabase {
         ],
         cookTimeMinutes: 12,
         difficulty: 'Easy',
-        imageUrl: 'https://via.placeholder.com/300x200?text=Veggie+Scramble',
+        imageUrl: 'assets/images/veggiescramble.jpg',
         tags: ['eggs', 'vegetables', 'peppers', 'tomato', 'onion'],
       ),
 
@@ -143,7 +143,7 @@ class RecipeDatabase {
         ],
         cookTimeMinutes: 15,
         difficulty: 'Easy',
-        imageUrl: 'https://via.placeholder.com/300x200?text=Chicken+Fried+Rice',
+        imageUrl: 'assets/images/Bang-Bang-Chicken-Fried-Rice-2.jpg',
         tags: ['rice', 'chicken', 'eggs', 'vegetables', 'leftover'],
       ),
       Recipe(
@@ -168,7 +168,7 @@ class RecipeDatabase {
         ],
         cookTimeMinutes: 30,
         difficulty: 'Easy',
-        imageUrl: 'https://via.placeholder.com/300x200?text=Vegetable+Soup',
+        imageUrl: 'assets/images/13338-quick-and-easy-vegetable-soup-DDMFS-4x3-402702f59e7a41519515cecccaba1b80.jpg',
         tags: ['vegetables', 'soup', 'healthy', 'broth'],
       ),
       Recipe(
@@ -193,7 +193,7 @@ class RecipeDatabase {
         ],
         cookTimeMinutes: 25,
         difficulty: 'Easy',
-        imageUrl: 'https://via.placeholder.com/300x200?text=Pasta+with+Meat',
+        imageUrl: 'assets/images/Greek-Spaghetti-with-Ground-Beef-Sauce-recipe-–-Makaronia-me-Kima-2.jpg',
         tags: ['pasta', 'meat', 'tomato', 'leftover'],
       ),
       Recipe(
@@ -218,7 +218,7 @@ class RecipeDatabase {
         ],
         cookTimeMinutes: 35,
         difficulty: 'Medium',
-        imageUrl: 'https://via.placeholder.com/300x200?text=Grain+Bowl',
+        imageUrl: 'assets/images/grainbowlvege.jpg',
         tags: ['grains', 'vegetables', 'healthy', 'roasted'],
       ),
 
@@ -245,7 +245,7 @@ class RecipeDatabase {
         ],
         cookTimeMinutes: 45,
         difficulty: 'Medium',
-        imageUrl: 'https://via.placeholder.com/300x200?text=Chicken+Rice',
+        imageUrl: 'assets/images/onepotchicrice.jpg',
         tags: ['chicken', 'rice', 'one-pot', 'vegetables'],
       ),
       Recipe(
@@ -270,7 +270,7 @@ class RecipeDatabase {
         ],
         cookTimeMinutes: 15,
         difficulty: 'Easy',
-        imageUrl: 'https://via.placeholder.com/300x200?text=Vegetable+Stir+Fry',
+        imageUrl: 'assets/images/grainbowlvege.jpg',
         tags: ['vegetables', 'stir-fry', 'quick', 'asian'],
       ),
       Recipe(
@@ -295,7 +295,7 @@ class RecipeDatabase {
         ],
         cookTimeMinutes: 25,
         difficulty: 'Easy',
-        imageUrl: 'https://via.placeholder.com/300x200?text=Lemon+Herb+Fish',
+        imageUrl: 'assets/images/lemon-and-herb-fish-with-wedges-75148-1.webp',
         tags: ['fish', 'lemon', 'herbs', 'healthy'],
       ),
 
@@ -322,7 +322,7 @@ class RecipeDatabase {
         ],
         cookTimeMinutes: 15,
         difficulty: 'Easy',
-        imageUrl: 'https://via.placeholder.com/300x200?text=Energy+Balls',
+        imageUrl: 'assets/images/nobakefruitnutenergyballs.jpg',
         tags: ['dates', 'nuts', 'healthy', 'no-bake'],
       ),
       Recipe(
@@ -346,7 +346,7 @@ class RecipeDatabase {
         ],
         cookTimeMinutes: 30,
         difficulty: 'Easy',
-        imageUrl: 'https://via.placeholder.com/300x200?text=Veggie+Chips',
+        imageUrl: 'assets/images/homemade-vegetable-chips-102105-hero-01-5be2062fc9e77c0051eb8529.jpg',
         tags: ['vegetables', 'healthy', 'baked', 'crispy'],
       ),
       Recipe(
@@ -371,7 +371,7 @@ class RecipeDatabase {
         ],
         cookTimeMinutes: 10,
         difficulty: 'Easy',
-        imageUrl: 'https://via.placeholder.com/300x200?text=Quick+Hummus',
+        imageUrl: 'assets/images/232962-super-easy-hummus-ddmfs-1X2-0316-bf44d147efde4432b6f3b4a0c251ac06.jpg',
         tags: ['chickpeas', 'healthy', 'dip', 'protein'],
       ),
 
@@ -397,7 +397,7 @@ class RecipeDatabase {
         ],
         cookTimeMinutes: 10,
         difficulty: 'Easy',
-        imageUrl: 'https://via.placeholder.com/300x200?text=Banana+Ice+Cream',
+        imageUrl: 'assets/images/bananaicecream.jpg',
         tags: ['banana', 'healthy', 'frozen', 'dairy-free'],
       ),
       Recipe(
@@ -422,7 +422,7 @@ class RecipeDatabase {
         ],
         cookTimeMinutes: 20,
         difficulty: 'Easy',
-        imageUrl: 'https://via.placeholder.com/300x200?text=Chocolate+Oat+Cookies',
+        imageUrl: 'assets/images/chocoatcookies.jpg',
         tags: ['oats', 'chocolate', 'no-bake', 'sweet'],
       ),
     ];

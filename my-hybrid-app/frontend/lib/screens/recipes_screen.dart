@@ -301,18 +301,36 @@ class _RecipesScreenState extends State<RecipesScreen> {
           padding: const EdgeInsets.all(16),
           child: Row(
             children: [
-              // Recipe image placeholder
+              // Recipe image
               Container(
                 width: 80,
                 height: 80,
                 decoration: BoxDecoration(
-                  color: AppTheme.primaryGreen.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: const Icon(
-                  Icons.restaurant,
-                  color: AppTheme.primaryGreen,
-                  size: 40,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(
+                    recipe.imageUrl,
+                    width: 80,
+                    height: 80,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          color: AppTheme.primaryGreen.withValues(alpha: 0.1),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: const Icon(
+                          Icons.restaurant,
+                          color: AppTheme.primaryGreen,
+                          size: 40,
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
               

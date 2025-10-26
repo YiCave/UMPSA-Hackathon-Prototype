@@ -38,30 +38,44 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Recipe Image
-            Container(
+            SizedBox(
               height: 250,
               width: double.infinity,
-              decoration: BoxDecoration(
-                color: AppTheme.cardBackground,
-                image: DecorationImage(
-                  image: NetworkImage(widget.recipe.imageUrl),
-                  fit: BoxFit.cover,
-                  onError: (exception, stackTrace) {},
-                ),
-              ),
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Colors.transparent,
-                      Colors.black.withValues(alpha: 0.3),
-                    ],
+              child: Stack(
+                children: [
+                  Image.asset(
+                    widget.recipe.imageUrl,
+                    height: 250,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        height: 250,
+                        width: double.infinity,
+                        color: AppTheme.cardBackground,
+                        child: const Center(
+                          child: Icon(
+                            Icons.restaurant,
+                            color: AppTheme.primaryGreen,
+                            size: 80,
+                          ),
+                        ),
+                      );
+                    },
                   ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
+                  Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.transparent,
+                          Colors.black.withValues(alpha: 0.3),
+                        ],
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,6 +99,8 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                     ],
                   ),
                 ),
+              ),
+                ],
               ),
             ),
 
