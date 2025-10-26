@@ -131,6 +131,37 @@ class _RecipientDashboardState extends State<RecipientDashboard> {
             ),
           ),
 
+          const SizedBox(height: 16),
+
+          // Find SmartBite Hub Button
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  _currentIndex = 2; // Navigate to map tab
+                });
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: AppTheme.accentOrange,
+                padding: const EdgeInsets.symmetric(vertical: 20),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.location_on, color: Colors.white),
+                  const SizedBox(width: 12),
+                  Text(
+                    'Find SmartBite Hub',
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
           const SizedBox(height: 24),
 
           // Monthly Tracker
@@ -260,6 +291,52 @@ class _RecipientDashboardState extends State<RecipientDashboard> {
           ),
           const SizedBox(height: 24),
           
+          // Your Current Location
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.red.shade50,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: Colors.red.shade200),
+            ),
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Icon(Icons.my_location, color: Colors.white, size: 20),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'You are here',
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          color: Colors.red.shade700,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(
+                        'Jalan University, Kuantan Campus',
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: Colors.red.shade600,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Icon(Icons.navigation, color: Colors.red.shade600),
+              ],
+            ),
+          ),
+          
+          const SizedBox(height: 16),
+          
           // Fake Map
           const FakeMapWidget(showHubs: true),
           
@@ -276,26 +353,34 @@ class _RecipientDashboardState extends State<RecipientDashboard> {
           
           _buildHubListItem(
             'Central Hub',
-            '123 Main Street, City Center',
-            '0.8 km away',
-            '15 items available',
+            'UMPSA Main Campus, Block A',
+            '0.3 km away',
+            '12 items available',
             AppTheme.successGreen,
           ),
           const SizedBox(height: 12),
           _buildHubListItem(
-            'Mall Hub', 
-            'Shopping Plaza, Level 1',
-            '1.2 km away',
-            '8 items available',
+            'Kuantan Mall Hub', 
+            'East Coast Mall, Level G',
+            '1.8 km away',
+            '6 items available',
             AppTheme.accentOrange,
           ),
           const SizedBox(height: 12),
           _buildHubListItem(
             'Community Hub',
-            'Community Center, Block A',
-            '1.5 km away',
-            '12 items available',
+            'Taman Gelora Community Center',
+            '2.2 km away',
+            '9 items available',
             AppTheme.successGreen,
+          ),
+          const SizedBox(height: 12),
+          _buildHubListItem(
+            'Hospital Hub',
+            'Hospital Tengku Ampuan Afzan',
+            '3.1 km away',
+            '4 items available',
+            Colors.blue,
           ),
         ],
       ),
@@ -310,66 +395,239 @@ class _RecipientDashboardState extends State<RecipientDashboard> {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16),
-        child: Row(
+        child: Column(
           children: [
-            Container(
-              width: 50,
-              height: 50,
-              decoration: BoxDecoration(
-                color: statusColor.withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(25),
-              ),
-              child: Icon(Icons.restaurant, color: statusColor, size: 24),
-            ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    name,
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 16),
+            Row(
+              children: [
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: statusColor.withValues(alpha: 0.1),
+                    borderRadius: BorderRadius.circular(25),
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    address,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: AppTheme.textSecondary,
-                    ),
-                  ),
-                  const SizedBox(height: 2),
-                  Row(
+                  child: Icon(Icons.store, color: statusColor, size: 24),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(Icons.location_on, size: 14, color: statusColor),
-                      const SizedBox(width: 4),
                       Text(
-                        distance,
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                          color: statusColor,
-                          fontWeight: FontWeight.w500,
+                        name,
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 16),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        address,
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: AppTheme.textSecondary,
                         ),
                       ),
+                      const SizedBox(height: 6),
+                      Row(
+                        children: [
+                          Icon(Icons.location_on, size: 14, color: statusColor),
+                          const SizedBox(width: 4),
+                          Text(
+                            distance,
+                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: statusColor,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(width: 16),
+                          Icon(Icons.access_time, size: 14, color: AppTheme.textSecondary),
+                          const SizedBox(width: 4),
+                          Text(
+                            _getEstimatedTime(distance),
+                            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                              color: AppTheme.textSecondary,
+                            ),
+                          ),
+                        ],
+                      ),
                     ],
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: statusColor.withValues(alpha: 0.1),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Text(
+                    items,
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: statusColor,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      _showNavigationDialog(name, address, distance);
+                    },
+                    icon: const Icon(Icons.directions, size: 16),
+                    label: const Text('Navigate'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppTheme.primaryGreen,
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: OutlinedButton.icon(
+                    onPressed: () {
+                      _showHubDetails(name, address, items);
+                    },
+                    icon: const Icon(Icons.info_outline, size: 16),
+                    label: const Text('Info'),
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: statusColor,
+                      side: BorderSide(color: statusColor),
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  String _getEstimatedTime(String distance) {
+    final distanceValue = double.tryParse(distance.split(' ').first) ?? 1.0;
+    final minutes = (distanceValue * 12).round(); // Assuming 5 km/h walking speed
+    return '~${minutes}min walk';
+  }
+
+  void _showNavigationDialog(String hubName, String address, String distance) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Row(
+          children: [
+            const Icon(Icons.navigation, color: AppTheme.primaryGreen),
+            const SizedBox(width: 8),
+            Text('Navigate to $hubName'),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Address: $address'),
+            const SizedBox(height: 8),
+            Text('Distance: $distance'),
+            const SizedBox(height: 8),
+            Text('Estimated time: ${_getEstimatedTime(distance)}'),
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: AppTheme.primaryGreen.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: const Row(
+                children: [
+                  Icon(Icons.info_outline, color: AppTheme.primaryGreen, size: 20),
+                  SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      'This will open your preferred navigation app',
+                      style: TextStyle(color: AppTheme.primaryGreen),
+                    ),
                   ),
                 ],
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              decoration: BoxDecoration(
-                color: statusColor.withValues(alpha: 0.1),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Text(
-                items,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: statusColor,
-                  fontWeight: FontWeight.w500,
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancel'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Opening navigation to $hubName...'),
+                  backgroundColor: AppTheme.primaryGreen,
                 ),
+              );
+            },
+            style: ElevatedButton.styleFrom(backgroundColor: AppTheme.primaryGreen),
+            child: const Text('Navigate', style: TextStyle(color: Colors.white)),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showHubDetails(String hubName, String address, String items) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Row(
+          children: [
+            const Icon(Icons.store, color: AppTheme.primaryGreen),
+            const SizedBox(width: 8),
+            Text(hubName),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('📍 Address: $address'),
+            const SizedBox(height: 8),
+            Text('📦 $items'),
+            const SizedBox(height: 8),
+            const Text('🕒 Operating Hours: 9:00 AM - 6:00 PM'),
+            const SizedBox(height: 8),
+            const Text('📞 Contact: +60 12-345 6789'),
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: AppTheme.accentOrange.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: const Row(
+                children: [
+                  Icon(Icons.tips_and_updates, color: AppTheme.accentOrange, size: 20),
+                  SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      'Present your QR code to collect food items',
+                      style: TextStyle(color: AppTheme.accentOrange),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
         ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Close'),
+          ),
+        ],
       ),
     );
   }
