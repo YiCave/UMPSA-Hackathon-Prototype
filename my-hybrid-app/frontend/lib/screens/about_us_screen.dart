@@ -537,19 +537,14 @@ class _AboutUsScreenState extends State<AboutUsScreen>
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 20),
-              GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 12,
-                  mainAxisSpacing: 12,
-                  childAspectRatio: 2.5,
-                ),
-                itemCount: partners.length,
-                itemBuilder: (context, index) {
-                  final partner = partners[index];
+              // Use Wrap instead of GridView to prevent overflow
+              Wrap(
+                spacing: 12,
+                runSpacing: 12,
+                children: partners.map((partner) {
                   return Container(
+                    width: (MediaQuery.of(context).size.width - 92) / 2,
+                    height: 80, // Fixed height to prevent overflow
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -559,27 +554,33 @@ class _AboutUsScreenState extends State<AboutUsScreen>
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          partner['name']!,
-                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            fontWeight: FontWeight.w600,
+                        Flexible(
+                          child: Text(
+                            partner['name']!,
+                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 12,
+                            ),
+                            textAlign: TextAlign.center,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                          textAlign: TextAlign.center,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
                         ),
                         const SizedBox(height: 4),
                         Text(
                           partner['type']!,
                           style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             color: AppTheme.primaryGreen,
+                            fontSize: 10,
                           ),
                           textAlign: TextAlign.center,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ],
                     ),
                   );
-                },
+                }).toList(),
               ),
             ],
           ),
