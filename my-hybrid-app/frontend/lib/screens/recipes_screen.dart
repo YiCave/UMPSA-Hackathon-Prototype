@@ -59,7 +59,6 @@ class _RecipesScreenState extends State<RecipesScreen> {
     return Scaffold(
       body: Column(
         children: [
-          // Header
           Container(
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -95,7 +94,6 @@ class _RecipesScreenState extends State<RecipesScreen> {
                 const SizedBox(height: 8),
                 
                 if (_showIngredientSearch) ...[
-                  // Ingredient Search
                   Text(
                     'What ingredients do you have?',
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
@@ -138,7 +136,6 @@ class _RecipesScreenState extends State<RecipesScreen> {
                   
                   const SizedBox(height: 12),
                   
-                  // Ingredient chips
                   if (_userIngredients.isNotEmpty) ...[
                     Wrap(
                       spacing: 8,
@@ -167,7 +164,6 @@ class _RecipesScreenState extends State<RecipesScreen> {
             ),
           ),
           
-          // Category filters
           Container(
             height: 50,
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -203,7 +199,6 @@ class _RecipesScreenState extends State<RecipesScreen> {
           
           const SizedBox(height: 16),
           
-          // Results count
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Row(
@@ -232,7 +227,6 @@ class _RecipesScreenState extends State<RecipesScreen> {
           
           const SizedBox(height: 8),
           
-          // Recipe list
           Expanded(
             child: _filteredRecipes.isEmpty
                 ? _buildEmptyState()
@@ -388,11 +382,10 @@ class _RecipesScreenState extends State<RecipesScreen> {
                             color: _getDifficultyColor(recipe.difficulty),
                           ),
                         ),
-                      ],
-                    ),
-                    
-                    // Match percentage (if ingredient search is active)
-                    if (_userIngredients.isNotEmpty && recipe.matchPercentage > 0) ...[
+                    ],
+                  ),
+                  
+                  if (_userIngredients.isNotEmpty && recipe.matchPercentage > 0) ...[
                       const SizedBox(height: 8),
                       Container(
                         padding: const EdgeInsets.symmetric(

@@ -27,7 +27,6 @@ class _DeliveryTrackingScreenState extends State<DeliveryTrackingScreen> {
   }
 
   void _startTrackingAnimation() {
-    // Simulate tracking progression
     Future.delayed(const Duration(seconds: 2), () {
       if (mounted) {
         setState(() {
@@ -115,7 +114,6 @@ class _DeliveryTrackingScreenState extends State<DeliveryTrackingScreen> {
 
             const SizedBox(height: 24),
 
-            // Live Map
             Text(
               'Live Tracking',
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -131,7 +129,6 @@ class _DeliveryTrackingScreenState extends State<DeliveryTrackingScreen> {
 
             const SizedBox(height: 24),
 
-            // Progress Steps
             Text(
               'Pickup Progress',
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -175,7 +172,6 @@ class _DeliveryTrackingScreenState extends State<DeliveryTrackingScreen> {
 
             const SizedBox(height: 24),
 
-            // Estimated Time
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -212,7 +208,6 @@ class _DeliveryTrackingScreenState extends State<DeliveryTrackingScreen> {
 
             const SizedBox(height: 24),
 
-            // Contact Information
             if (_currentStep >= 1 && _currentStep < 3) ...[
               Container(
                 padding: const EdgeInsets.all(16),
@@ -259,7 +254,6 @@ class _DeliveryTrackingScreenState extends State<DeliveryTrackingScreen> {
               const SizedBox(height: 16),
             ],
 
-            // Success Message
             if (_currentStep >= 3) ...[
               Container(
                 padding: const EdgeInsets.all(16),
@@ -296,7 +290,6 @@ class _DeliveryTrackingScreenState extends State<DeliveryTrackingScreen> {
               const SizedBox(height: 16),
             ],
 
-            // Back to Dashboard Button
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(

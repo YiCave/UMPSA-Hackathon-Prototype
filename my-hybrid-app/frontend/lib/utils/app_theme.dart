@@ -18,7 +18,6 @@ class AppTheme {
       scaffoldBackgroundColor: backgroundColor,
       fontFamily: 'Poppins',
       
-      // App Bar Theme
       appBarTheme: const AppBarTheme(
         backgroundColor: backgroundColor,
         elevation: 0,
@@ -31,7 +30,6 @@ class AppTheme {
         ),
       ),
 
-      // Text Theme
       textTheme: const TextTheme(
         headlineLarge: TextStyle(
           fontSize: 32,
@@ -65,7 +63,6 @@ class AppTheme {
         ),
       ),
 
-      // Elevated Button Theme
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: primaryGreen,
@@ -83,16 +80,6 @@ class AppTheme {
         ),
       ),
 
-      // Card Theme - Remove this section for now to fix the error
-      // cardTheme: const CardTheme(
-      //   elevation: 2,
-      //   shape: RoundedRectangleBorder(
-      //     borderRadius: BorderRadius.all(Radius.circular(16)),
-      //   ),
-      //   color: cardBackground,
-      // ),
-
-      // Input Decoration Theme
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: cardBackground,
@@ -128,7 +115,6 @@ class AppTheme {
         b + ((ds < 0 ? b : (255 - b)) * ds).round(),
       );
     }
-  // Create the primary value directly using bitwise operations to avoid deprecated .value
   final int primaryValue = (255 << 24) | (r << 16) | (g << 8) | b;
   return MaterialColor(primaryValue, swatch);
   }

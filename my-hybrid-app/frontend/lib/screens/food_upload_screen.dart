@@ -14,7 +14,6 @@ class _FoodUploadScreenState extends State<FoodUploadScreen> {
   bool _isScanning = false;
   bool _isScanMode = true;
   
-  // Form controllers
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _valueController = TextEditingController();
@@ -100,7 +99,6 @@ class _FoodUploadScreenState extends State<FoodUploadScreen> {
             const SizedBox(height: 24),
 
             if (_isScanMode) ...[
-              // Camera Section
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
@@ -114,13 +112,11 @@ class _FoodUploadScreenState extends State<FoodUploadScreen> {
                 ),
               ),
             ] else ...[
-              // Manual Input Form
               Expanded(child: _buildManualInputForm()),
             ],
 
             const SizedBox(height: 24),
 
-            // Action Buttons
             if (_isScanMode && !_isScanning)
               ElevatedButton(
                 onPressed: _startScanning,
@@ -209,7 +205,6 @@ class _FoodUploadScreenState extends State<FoodUploadScreen> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            // Food Name
             TextFormField(
               controller: _nameController,
               decoration: const InputDecoration(
@@ -226,7 +221,6 @@ class _FoodUploadScreenState extends State<FoodUploadScreen> {
             ),
             const SizedBox(height: 16),
 
-            // Category Dropdown
             DropdownButtonFormField<String>(
               initialValue: _selectedCategory,
               decoration: const InputDecoration(
@@ -247,7 +241,6 @@ class _FoodUploadScreenState extends State<FoodUploadScreen> {
             ),
             const SizedBox(height: 16),
 
-            // Description
             TextFormField(
               controller: _descriptionController,
               decoration: const InputDecoration(
@@ -259,7 +252,6 @@ class _FoodUploadScreenState extends State<FoodUploadScreen> {
             ),
             const SizedBox(height: 16),
 
-            // Halal Toggle
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -306,7 +298,6 @@ class _FoodUploadScreenState extends State<FoodUploadScreen> {
             ),
             const SizedBox(height: 16),
 
-            // Expiry Date
             GestureDetector(
               onTap: _selectDate,
               child: Container(
@@ -354,7 +345,6 @@ class _FoodUploadScreenState extends State<FoodUploadScreen> {
             ],
             const SizedBox(height: 16),
 
-            // Approximate Value
             TextFormField(
               controller: _valueController,
               decoration: const InputDecoration(
@@ -377,7 +367,6 @@ class _FoodUploadScreenState extends State<FoodUploadScreen> {
             ),
             const SizedBox(height: 16),
 
-            // Commission Fee Notice
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -421,7 +410,6 @@ class _FoodUploadScreenState extends State<FoodUploadScreen> {
             ),
             const SizedBox(height: 16),
 
-            // Terms Acceptance
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -487,7 +475,6 @@ class _FoodUploadScreenState extends State<FoodUploadScreen> {
       _isScanning = true;
     });
 
-    // Simulate scanning process
     Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
         setState(() {
@@ -537,7 +524,6 @@ class _FoodUploadScreenState extends State<FoodUploadScreen> {
           TextButton(
             onPressed: () {
               Navigator.pop(context);
-              // Switch to manual mode and pre-fill data
               setState(() {
                 _isScanMode = false;
                 _nameController.text = 'Chicken Breast';

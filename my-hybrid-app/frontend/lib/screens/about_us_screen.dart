@@ -46,35 +46,27 @@ class _AboutUsScreenState extends State<AboutUsScreen>
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Hero Section
               _buildHeroSection(),
               const SizedBox(height: 32),
 
-              // Mission Statement
               _buildMissionSection(),
               const SizedBox(height: 32),
 
-              // Impact Statistics
               _buildImpactStatistics(),
               const SizedBox(height: 32),
 
-              // How It Works
               _buildHowItWorks(),
               const SizedBox(height: 32),
 
-              // Articles Section
               _buildArticlesSection(),
               const SizedBox(height: 32),
 
-              // Corporate Partnerships
               _buildPartnershipsSection(),
               const SizedBox(height: 32),
 
-              // Donation Portal
               _buildDonationPortal(),
               const SizedBox(height: 32),
 
-              // Contact & Partnership
               _buildContactSection(),
             ],
           ),
@@ -450,7 +442,6 @@ class _AboutUsScreenState extends State<AboutUsScreen>
     return Card(
       child: InkWell(
         onTap: () {
-          // Navigate to article detail
           _showArticleDialog(title, description);
         },
         borderRadius: BorderRadius.circular(12),
@@ -537,7 +528,6 @@ class _AboutUsScreenState extends State<AboutUsScreen>
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 20),
-              // Use Wrap instead of GridView to prevent overflow
               Wrap(
                 spacing: 12,
                 runSpacing: 12,

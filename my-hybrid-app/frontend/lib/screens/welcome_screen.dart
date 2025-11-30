@@ -27,7 +27,6 @@ class WelcomeScreen extends StatelessWidget {
               
               const SizedBox(height: 40),
               
-              // App Logo and Title
               Column(
                 children: [
                   Container(
@@ -63,7 +62,6 @@ class WelcomeScreen extends StatelessWidget {
               
               const Spacer(),
               
-              // Role Selection Cards
               Text(
                 'How would you like to help?',
                 style: Theme.of(context).textTheme.titleLarge,
@@ -72,7 +70,6 @@ class WelcomeScreen extends StatelessWidget {
               
               const SizedBox(height: 32),
               
-              // Sharer Button
               _buildRoleCard(
                 context,
                 title: 'Continue as Sharer',
@@ -84,7 +81,6 @@ class WelcomeScreen extends StatelessWidget {
               
               const SizedBox(height: 16),
               
-              // Recipient Button
               _buildRoleCard(
                 context,
                 title: 'Continue as Recipient',
@@ -96,7 +92,6 @@ class WelcomeScreen extends StatelessWidget {
               
               const SizedBox(height: 32),
               
-              // Mission Statement
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(

@@ -25,17 +25,14 @@ class FakeMapWidget extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          // Background "map" with roads and buildings
           _buildMapBackground(),
           
-          // User location (red dot)
           const Positioned(
             left: 180,
             top: 200,
             child: UserLocationMarker(),
           ),
           
-          // SmartBite Hubs (if showing hubs)
           if (showHubs) ...[
             const Positioned(
               left: 120,
@@ -63,7 +60,6 @@ class FakeMapWidget extends StatelessWidget {
             ),
           ],
           
-          // Rider location (if showing rider)
           if (showRider && riderLocation != null) ...[
             Positioned(
               left: riderLocation == "pickup" ? 160 : 
@@ -74,7 +70,6 @@ class FakeMapWidget extends StatelessWidget {
             ),
           ],
           
-          // Map controls
           Positioned(
             top: 16,
             right: 16,
@@ -138,8 +133,6 @@ class MapBackgroundPainter extends CustomPainter {
       ..color = Colors.grey.shade400
       ..strokeWidth = 3;
 
-    // Draw roads
-    // Horizontal roads
     canvas.drawLine(
       const Offset(0, 100),
       Offset(size.width, 100),
@@ -156,7 +149,6 @@ class MapBackgroundPainter extends CustomPainter {
       paint,
     );
 
-    // Vertical roads
     canvas.drawLine(
       const Offset(100, 0),
       Offset(100, size.height),
@@ -173,7 +165,6 @@ class MapBackgroundPainter extends CustomPainter {
       paint,
     );
 
-    // Draw buildings
     final buildingPaint = Paint()
       ..color = Colors.grey.shade600;
 

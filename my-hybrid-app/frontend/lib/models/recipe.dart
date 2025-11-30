@@ -42,7 +42,6 @@ class Recipe {
 class RecipeDatabase {
   static List<Recipe> getAllRecipes() {
     return [
-      // Breakfast Recipes
       Recipe(
         id: 'breakfast_1',
         title: 'Leftover Rice Breakfast Bowl',
@@ -119,7 +118,6 @@ class RecipeDatabase {
         tags: ['eggs', 'vegetables', 'peppers', 'tomato', 'onion'],
       ),
 
-      // Lunch Recipes
       Recipe(
         id: 'lunch_1',
         title: 'Leftover Chicken Fried Rice',
@@ -222,7 +220,6 @@ class RecipeDatabase {
         tags: ['grains', 'vegetables', 'healthy', 'roasted'],
       ),
 
-      // Dinner Recipes
       Recipe(
         id: 'dinner_1',
         title: 'One-Pot Chicken and Rice',
@@ -299,7 +296,6 @@ class RecipeDatabase {
         tags: ['fish', 'lemon', 'herbs', 'healthy'],
       ),
 
-      // Snacks
       Recipe(
         id: 'snack_1',
         title: 'Fruit and Nut Energy Balls',
@@ -375,7 +371,6 @@ class RecipeDatabase {
         tags: ['chickpeas', 'healthy', 'dip', 'protein'],
       ),
 
-      // Desserts
       Recipe(
         id: 'dessert_1',
         title: 'Banana Nice Cream',
@@ -454,7 +449,6 @@ class RecipeDatabase {
       }
     }
 
-    // Sort by match percentage (highest first)
     matchedRecipes.sort((a, b) => b.matchPercentage.compareTo(a.matchPercentage));
     return matchedRecipes;
   }

@@ -15,6 +15,6 @@ class FoodItem {
     this.description,
   });
 
-  double get commissionFee => value * 0.03; // 3% commission
+  double get commissionFee => value * 0.03;
   double get netValue => value - commissionFee;
 }

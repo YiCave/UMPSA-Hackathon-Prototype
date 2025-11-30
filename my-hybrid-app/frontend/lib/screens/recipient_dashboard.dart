@@ -63,7 +63,6 @@ class _RecipientDashboardState extends State<RecipientDashboard> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Welcome Card
           Container(
             width: double.infinity,
             padding: const EdgeInsets.all(20),
@@ -101,7 +100,6 @@ class _RecipientDashboardState extends State<RecipientDashboard> {
 
           const SizedBox(height: 24),
 
-          // QR Scan Button
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
@@ -133,7 +131,6 @@ class _RecipientDashboardState extends State<RecipientDashboard> {
 
           const SizedBox(height: 16),
 
-          // Find SmartBite Hub Button
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
@@ -164,7 +161,6 @@ class _RecipientDashboardState extends State<RecipientDashboard> {
 
           const SizedBox(height: 24),
 
-          // Monthly Tracker
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
@@ -212,7 +208,6 @@ class _RecipientDashboardState extends State<RecipientDashboard> {
 
           const SizedBox(height: 24),
 
-          // My Claimed Items
           Text(
             'My Claimed Items',
             style: Theme.of(context).textTheme.titleLarge,
@@ -242,7 +237,6 @@ class _RecipientDashboardState extends State<RecipientDashboard> {
 
           const SizedBox(height: 24),
 
-          // Privacy Note
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
@@ -291,7 +285,6 @@ class _RecipientDashboardState extends State<RecipientDashboard> {
           ),
           const SizedBox(height: 24),
           
-          // Your Current Location
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
@@ -337,12 +330,10 @@ class _RecipientDashboardState extends State<RecipientDashboard> {
           
           const SizedBox(height: 16),
           
-          // Fake Map
           const FakeMapWidget(showHubs: true),
           
           const SizedBox(height: 24),
           
-          // Hub List
           Text(
             'Available Hubs',
             style: Theme.of(context).textTheme.titleLarge?.copyWith(

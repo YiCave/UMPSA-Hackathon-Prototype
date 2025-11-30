@@ -7,14 +7,12 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
 app.use(helmet());
 app.use(cors());
 app.use(morgan('combined'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'OK',
@@ -24,13 +22,11 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Sample users data (replace with database later)
 const users = [
   { id: 1, name: 'John Doe', email: 'john@example.com' },
   { id: 2, name: 'Jane Smith', email: 'jane@example.com' }
 ];
 
-// Get all users
 app.get('/api/users', (req, res) => {
   res.json({
     success: true,
@@ -39,7 +35,6 @@ app.get('/api/users', (req, res) => {
   });
 });
 
-// Get single user
 app.get('/api/users/:id', (req, res) => {
   const userId = parseInt(req.params.id);
   const user = users.find(u => u.id === userId);
@@ -57,7 +52,6 @@ app.get('/api/users/:id', (req, res) => {
   });
 });
 
-// Create new user
 app.post('/api/users', (req, res) => {
   const { name, email } = req.body;
   
@@ -83,7 +77,6 @@ app.post('/api/users', (req, res) => {
   });
 });
 
-// Sample app data endpoint
 app.get('/api/data', (req, res) => {
   res.json({
     success: true,
@@ -105,7 +98,6 @@ app.get('/api/data', (req, res) => {
   });
 });
 
-// Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({
@@ -115,7 +107,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-// 404 handler
 app.use('*', (req, res) => {
   res.status(404).json({
     success: false,

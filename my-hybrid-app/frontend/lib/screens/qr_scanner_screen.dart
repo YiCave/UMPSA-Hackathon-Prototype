@@ -35,7 +35,6 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
       ),
       body: Stack(
         children: [
-          // Camera Scanner
           MobileScanner(
             controller: cameraController,
             onDetect: (capture) {
@@ -54,7 +53,6 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
             },
           ),
           
-          // Scanning overlay
           Container(
             decoration: ShapeDecoration(
               shape: QrScannerOverlayShape(
@@ -67,7 +65,6 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
             ),
           ),
           
-          // Instructions
           Positioned(
             bottom: 100,
             left: 0,
@@ -96,7 +93,6 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
   }
 
   void _handleQRCode(String qrData) {
-    // Show success dialog
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -105,7 +101,6 @@ class _QRScannerScreenState extends State<QRScannerScreen> {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Success animation placeholder
             Container(
               width: 80,
               height: 80,

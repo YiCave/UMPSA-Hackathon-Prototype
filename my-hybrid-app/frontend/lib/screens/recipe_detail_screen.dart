@@ -37,7 +37,6 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Recipe Image
             SizedBox(
               height: 250,
               width: double.infinity,

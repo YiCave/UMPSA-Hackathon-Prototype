@@ -101,7 +101,6 @@ class _SharerDashboardState extends State<SharerDashboard> {
 
           const SizedBox(height: 24),
 
-          // Impact Stats (Moved to top and enhanced)
           Text(
             'Your Impact This Month',
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -123,7 +122,6 @@ class _SharerDashboardState extends State<SharerDashboard> {
             ),
             child: Column(
               children: [
-                // Top row stats
                 Row(
                   children: [
                     Expanded(
@@ -146,7 +144,6 @@ class _SharerDashboardState extends State<SharerDashboard> {
                   ],
                 ),
                 const SizedBox(height: 12),
-                // Bottom row stats
                 Row(
                   children: [
                     Expanded(
@@ -169,7 +166,6 @@ class _SharerDashboardState extends State<SharerDashboard> {
                   ],
                 ),
                 const SizedBox(height: 16),
-                // Impact visualization
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
@@ -185,7 +181,6 @@ class _SharerDashboardState extends State<SharerDashboard> {
                         ),
                       ),
                       const SizedBox(height: 12),
-                      // Fake chart representation
                       SizedBox(
                         height: 80,
                         child: Row(
@@ -211,7 +206,6 @@ class _SharerDashboardState extends State<SharerDashboard> {
 
           const SizedBox(height: 24),
 
-          // Quick Actions
           Text(
             'Quick Actions',
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -254,7 +248,6 @@ class _SharerDashboardState extends State<SharerDashboard> {
 
           const SizedBox(height: 24),
 
-          // Recent Activity
           Text(
             'Recent Activity',
             style: Theme.of(context).textTheme.titleLarge,
@@ -284,7 +277,6 @@ class _SharerDashboardState extends State<SharerDashboard> {
 
           const SizedBox(height: 24),
 
-          // Achievement Badge
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
